@@ -11,7 +11,7 @@ const (
 	defaultNumberOfIntegers = 10000
 )
 
-// Generator function to produce random integers
+// generator function to produce random integers
 func generator(num int, out chan<- int) {
 	defer close(out)
 	for i := 0; i < num; i++ {
@@ -20,7 +20,7 @@ func generator(num int, out chan<- int) {
 	}
 }
 
-// Square function to square the integers
+// square function to square the integers
 func square(in <-chan int, out chan<- int) {
 	for num := range in {
 		randNumSqr := num * num
@@ -30,7 +30,7 @@ func square(in <-chan int, out chan<- int) {
 	close(out)
 }
 
-// Sum function to sum the squared integers
+// sum function to sum the squared integers
 func sum(in <-chan int, out chan<- int) {
 	total := 0
 	for num := range in {
